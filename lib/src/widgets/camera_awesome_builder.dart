@@ -242,30 +242,31 @@ class CameraAwesomeBuilder extends StatefulWidget {
     PictureInPictureConfigBuilder? pictureInPictureConfigBuilder,
     List<AwesomeFilter>? filters,
     OnMediaCaptureEvent? onMediaCaptureEvent,
+    List<DeviceOrientation>? orientations,
   }) : this._(
-          sensorConfig: sensorConfig ??
-              SensorConfig.single(
-                sensor: Sensor.position(SensorPosition.back),
-              ),
-          enablePhysicalButton: enablePhysicalButton,
-          progressIndicator: progressIndicator,
-          builder: builder,
-          saveConfig: saveConfig,
-          onMediaTap: null,
-          defaultFilter: filter,
-          onImageForAnalysis: onImageForAnalysis,
-          imageAnalysisConfig: imageAnalysisConfig,
-          onPreviewTapBuilder: onPreviewTapBuilder,
-          onPreviewScaleBuilder: onPreviewScaleBuilder,
-          previewFit: previewFit ?? CameraPreviewFit.cover,
-          previewDecoratorBuilder: null,
-          theme: theme ?? AwesomeTheme(),
-          previewPadding: previewPadding,
-          previewAlignment: previewAlignment,
-          pictureInPictureConfigBuilder: pictureInPictureConfigBuilder,
-          availableFilters: filters,
-          onMediaCaptureEvent: onMediaCaptureEvent,
-        );
+            sensorConfig: sensorConfig ??
+                SensorConfig.single(
+                  sensor: Sensor.position(SensorPosition.back),
+                ),
+            enablePhysicalButton: enablePhysicalButton,
+            progressIndicator: progressIndicator,
+            builder: builder,
+            saveConfig: saveConfig,
+            onMediaTap: null,
+            defaultFilter: filter,
+            onImageForAnalysis: onImageForAnalysis,
+            imageAnalysisConfig: imageAnalysisConfig,
+            onPreviewTapBuilder: onPreviewTapBuilder,
+            onPreviewScaleBuilder: onPreviewScaleBuilder,
+            previewFit: previewFit ?? CameraPreviewFit.cover,
+            previewDecoratorBuilder: null,
+            theme: theme ?? AwesomeTheme(),
+            previewPadding: previewPadding,
+            previewAlignment: previewAlignment,
+            pictureInPictureConfigBuilder: pictureInPictureConfigBuilder,
+            availableFilters: filters,
+            onMediaCaptureEvent: onMediaCaptureEvent,
+            orientations: orientations);
 
   /// Use this constructor when you don't want to take pictures or record videos.
   /// You can still do image analysis.
