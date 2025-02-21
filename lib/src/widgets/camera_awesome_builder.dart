@@ -118,28 +118,31 @@ class CameraAwesomeBuilder extends StatefulWidget {
   /// You can use it to do whatever you want once a media has been saved
   final OnMediaCaptureEvent? onMediaCaptureEvent;
 
-  const CameraAwesomeBuilder._({
-    required this.sensorConfig,
-    required this.enablePhysicalButton,
-    required this.progressIndicator,
-    required this.saveConfig,
-    required this.onMediaTap,
-    required this.builder,
-    required this.previewFit,
-    required this.defaultFilter,
-    this.onImageForAnalysis,
-    this.imageAnalysisConfig,
-    this.onPreviewTapBuilder,
-    this.onPreviewScaleBuilder,
-    this.previewDecoratorBuilder,
-    required this.theme,
-    this.previewPadding = EdgeInsets.zero,
-    this.previewAlignment = Alignment.center,
-    this.showPreview = true,
-    required this.pictureInPictureConfigBuilder,
-    this.availableFilters,
-    this.onMediaCaptureEvent,
-  });
+  ///custom device orientations;
+  final List<DeviceOrientation>? orientations;
+
+  const CameraAwesomeBuilder._(
+      {required this.sensorConfig,
+      required this.enablePhysicalButton,
+      required this.progressIndicator,
+      required this.saveConfig,
+      required this.onMediaTap,
+      required this.builder,
+      required this.previewFit,
+      required this.defaultFilter,
+      this.onImageForAnalysis,
+      this.imageAnalysisConfig,
+      this.onPreviewTapBuilder,
+      this.onPreviewScaleBuilder,
+      this.previewDecoratorBuilder,
+      required this.theme,
+      this.previewPadding = EdgeInsets.zero,
+      this.previewAlignment = Alignment.center,
+      this.showPreview = true,
+      required this.pictureInPictureConfigBuilder,
+      this.availableFilters,
+      this.onMediaCaptureEvent,
+      this.orientations});
 
   /// Use the camera with the built-in interface.
   ///
@@ -363,7 +366,8 @@ class _CameraWidgetBuilder extends State<CameraAwesomeBuilder>
 
   @override
   void didChangeDependencies() {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setPreferredOrientations(
+        widget.orientations ?? [DeviceOrientation.portraitUp]);
     super.didChangeDependencies();
   }
 
